@@ -25,3 +25,8 @@
         name: nginx
         state: restarted
         enabled: yes
+
+    - name: copy the file
+      copy:
+        src: "/tmp/learn.html"
+        dest: "/usr/share/nginx/html/index.html"
