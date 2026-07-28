@@ -4,3 +4,11 @@
     - name: print
       debug:
         msg: "Print the message"
+
+    - name: check uptime
+      shell: uptime
+      register: output
+
+    - name: print uptime
+      debug:
+        msg: "uptime of server is {{ output.stdout }}"
