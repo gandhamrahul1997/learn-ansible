@@ -14,3 +14,14 @@
     - name: print uptime
       debug:
         msg: "uptime of server is {{ output.stdout }}"
+
+    - name: Install nginx
+      dnf:
+        name: nginx
+        state: installed
+
+    - name: start nginx
+      systemd:
+        name: nginx
+        state: restarted
+        enabled: yes
