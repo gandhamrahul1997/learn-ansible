@@ -1,0 +1,6 @@
+- name: print the msg
+  hosts: all
+  tasks:
+    - name: print
+      debug:
+        msg: "Print the message"
