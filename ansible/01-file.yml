@@ -15,21 +15,18 @@
       debug:
         msg: "uptime of server is {{ output.stdout }}"
 
-    - name: Install nginx
-      dnf:
-        name: nginx
-        state: installed
+    - name: Install docker if not installed
+      shell: rpm -qa | grep -i docker
+      register: result
 
-    - name: start nginx
+    - name: Install docker
+      dnf:
+        name: docker
+        state: present
+      when: result.stdout == ""
+
+    - name: start docker
       systemd:
-        name: nginx
+        name: docker
         state: restarted
         enabled: yes
-
-    - name: copy the file
-      copy:
-        src: "/tmp/learn.html"
-        dest: "/usr/share/nginx/html/index.html"
-
-
-
