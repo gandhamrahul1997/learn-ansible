@@ -17,7 +17,7 @@
     - name: Install docker
       dnf:
         name: docker
-        state: installed
+        state: present
 
     - name: start docker
       systemd:
