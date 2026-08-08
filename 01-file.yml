@@ -15,13 +15,13 @@
       debug:
         msg: "uptime of server is {{ output.stdout }}"
 
-#    - name: Install docker
-#      dnf:
-#        name: docker
-#        state: present
-#
-#    - name: start docker
-#      systemd:
-#        name: docker
-#        state: restarted
-#        enabled: yes
+    - name: Install docker
+      dnf:
+        name: docker
+        state: present
+
+    - name: start docker
+      systemd:
+        name: docker
+        state: restarted
+        enabled: yes
