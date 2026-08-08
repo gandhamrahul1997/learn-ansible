@@ -30,3 +30,6 @@
       copy:
         src: "/tmp/learn.html"
         dest: "/usr/share/nginx/html/index.html"
+
+
+
