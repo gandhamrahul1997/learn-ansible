@@ -22,7 +22,7 @@
       dnf:
         name: docker
         state: present
-      when: result.stdout == ""
+      when: result.rc != 0
 
     - name: start docker
       systemd:
