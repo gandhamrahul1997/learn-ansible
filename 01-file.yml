@@ -1,6 +1,7 @@
 - name: print the msg
   hosts: localhost
   connection: local
+  become: true
   tasks:
     - name: print
       debug:
