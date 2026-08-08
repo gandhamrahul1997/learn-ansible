@@ -1,0 +1,32 @@
+- name: print the msg
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: print
+      debug:
+        msg: "Print the message"
+
+    - name: check uptime
+      shell: uptime
+      register: output
+
+    - name: print uptime
+      debug:
+        msg: "uptime of server is {{ output.stdout }}"
+
+    - name: Install docker if not installed
+      shell: rpm -qa | grep -i docker
+      register: result
+
+    - name: Install docker
+      dnf:
+        name: docker
+        state: present
+      when: result.stdout == ""
+
+    - name: start docker
+      systemd:
+        name: docker
+        state: restarted
+        enabled: yes
