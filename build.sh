@@ -8,6 +8,7 @@ echo "Current user: $(whoami)"
 # Simulate compiling or checking files
 if [ -f "README.md" ]; then
     echo "README file found. Validation passed!"
+    echo "job completed "
 else
     echo "README missing! Failing build..."
     exit 1
