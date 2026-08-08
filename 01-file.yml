@@ -14,15 +14,10 @@
       debug:
         msg: "uptime of server is {{ output.stdout }}"
 
-    - name: Install docker if not installed
-      shell: rpm -qa | grep -i docker
-      register: result
-
     - name: Install docker
       dnf:
         name: docker
-        state: present
-      when: result.rc != 0
+        state: installed
 
     - name: start docker
       systemd:
