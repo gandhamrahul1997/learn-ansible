@@ -26,3 +26,11 @@
         state: restarted
         enabled: yes
 
+    - name: RHEL version
+      shell: cat /etc/redhat-release
+      register: version
+
+    - name: print rhel
+      debug:
+        msg: "RHEL version is {{ version.stdout }}"
+      when: version.rc == 0
