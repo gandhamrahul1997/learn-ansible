@@ -2,9 +2,6 @@
   hosts: localhost
   connection: local
   become: true
-  vars:
-    a: 10
-    b: 20
   tasks:
     - name: print
       debug:
@@ -37,4 +34,3 @@
       debug:
         msg: "RHEL version is {{ version.stdout }}"
       when: version.rc == 0
-
