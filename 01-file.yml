@@ -34,3 +34,6 @@
       debug:
         msg: "RHEL version is {{ version.stdout }}"
       when: version.rc == 0
+
+    - name: print date
+      shell: date
